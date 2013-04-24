@@ -1,0 +1,14 @@
+{
+  "name": "twitstream-server",
+  "version": "0.1.0",
+  "contributors": [ 
+    {
+      "name": "Niels Dequeker",
+      "email": "niels.dequeker@gmail.com"
+    } 
+  ],
+  "dependencies" : {
+    "ntwitter"   :  "*",
+    "socket.io" :  "*"
+  }
+}
