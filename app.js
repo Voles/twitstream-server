@@ -6,10 +6,10 @@ var fs = require('fs')
 
 // twitter api connection
 var t = new twitter({
-	consumer_key: credentials.consumer_key,
-	consumer_secret: credentials.consumer_secret,
-	access_token_key: credentials.access_token_key,
-	access_token_secret: credentials.access_token_secret
+	consumer_key: '',
+	consumer_secret: '',
+	access_token_key: '',
+	access_token_secret: ''
 });
 
 // server
@@ -32,5 +32,4 @@ socketio.listen(server).on('connection', function (socket)
 			});
         }
     );
-	
 });
