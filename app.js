@@ -6,10 +6,10 @@ var fs = require('fs')
 
 // twitter api connection
 var t = new twitter({
-	consumer_key: '',
-	consumer_secret: '',
-	access_token_key: '',
-	access_token_secret: ''
+	consumer_key: credentials.consumer_key,
+	consumer_secret: credentials.consumer_secret,
+	access_token_key: credentials.access_token_key,
+	access_token_secret: credentials.access_token_secret
 });
 
 // server
@@ -22,16 +22,15 @@ var server = http.createServer().listen(8080, function()
 socketio.listen(server).on('connection', function (socket)
 {
 	// open twitter stream
-	
-		t.stream('statuses/filter', {track: ['javascript']},
-	        function(stream)
-	        {
-				stream.on('data', function(tweet)
-				{
-					// send tweet to the connected client
-					socket.emit('tweet', tweet);
-				});
-	        }
-	    );
+	t.stream('statuses/filter', {track: ['javascript']},
+        function(stream)
+        {
+			stream.on('data', function(tweet)
+			{
+				// send tweet to the connected client
+				socket.emit('tweet', tweet);
+			});
+        }
+    );
 	
 });
